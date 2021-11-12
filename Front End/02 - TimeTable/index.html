@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTable</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js" integrity="sha512-tVYBzEItJit9HXaWTPo8vveXlkK62LbA+wez9IgzjTmFNLMBO1BEYladBw2wnM3YURZSMUyhayPCoLtjGh84NQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="rootContainer">
+        <header>
+            <div class="dummy"></div>
+            <p>Time Table Generator</p>
+            <h3 onclick="downloadTimeTable()">Download TimeTable</h3>
+        </header>
+        <!-- <div class="generateTimeTable">
+            <div class="boxContainer">
+                <div class="rowContainer">
+                    <p id="rownodisplay">Day Count</p>
+                    <input id="rowInput" type="text" placeholder="Day Count..." onclick="rowInputClicked(event)" onblur="rowInputChanged(event)" oninput="rowValueChanged(event)">
+                </div>
+                <div class="columnContainer">
+                    <p id="colnodisplay">Period Count</p>
+                    <input id="colInput" type="text"  placeholder="Period Count..." onclick="colInputClicked(event)"  onblur="colInputChanged(event)" oninput="colValueChanged(event)">
+                </div>
+                <button onclick="generateTable(event)">Generate</button>
+            </div>
+        </div> -->
+        <div class="timetable">
+            <div class="timetableContainer">
+                <div class="tTable">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>Period 1</th>
+                            <th>Period 2</th>
+                            <th>Period 3</th>
+                            <th>Period 4</th>
+                            <th>Period 5</th>
+                            <th>Period 6</th>
+                            <th>Period 7</th>
+                            <th>Period 8</th>
+                        </tr>
+                        <tr>
+                            <th>Monday</th>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                        </tr>
+                        <tr>
+                            <th>Tuesday</th>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                        </tr>
+                        <tr>
+                            <th>Wednesday</th>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                        </tr>
+                        <tr>
+                            <th>Thursday</th>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                        </tr>
+                        <tr>
+                            <th>Friday</th>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                            <td ondragover="allowDrop(event)" ondrop="drop(event)"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tPeriods">
+                    <h3 id="tamil" draggable="true" ondragstart="drag(event)">Tamil</h3>
+                    <h3 id="english" draggable="true" ondragstart="drag(event)">English</h3>
+                    <h3 id="maths" draggable="true" ondragstart="drag(event)">Maths</h3>
+                    <h3 id="physics" draggable="true" ondragstart="drag(event)">Physics</h3>
+                    <h3 id="chemistry" draggable="true" ondragstart="drag(event)">Chemistry</h3>
+                    <h3 id="biology" draggable="true" ondragstart="drag(event)">Biology</h3>
+                    <h3 id="clear" draggable="true" ondragstart="drag(event)">Clear</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

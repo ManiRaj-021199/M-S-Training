@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ScoreCard</title>
+
+	<link rel="stylesheet" type="text/css" href="./assets/css/scorecard.css">
+</head>
+<body>
+	<div class="scoreCardContainer">
+		<div class="backToHome" onclick="backToHome()">
+			<h3>Back To Home</h3>
+		</div>
+		<div class="scoreCardContent">
+			<h1 id="errorMsg"></h1>
+			<h2>Enter Your Mark Details Below...</h2>
+			<form>
+				<div class="subjectMarkContainer">
+					<label for="tamil">Tamil</label>
+					<input id="tamilMark" type="number" name="tamil" oninput="disableInput(event, 'Tamil')">
+				</div>
+				<div class="subjectMarkContainer">
+					<label for="english">English</label>
+					<input id="englishMark" type="number" name="english" oninput="disableInput(event, 'English')">
+				</div>
+				<div class="subjectMarkContainer">
+					<label for="maths">Maths</label>
+					<input id="mathsMark" type="number" name="maths" oninput="disableInput(event, 'Maths')">
+				</div>
+				<div class="subjectMarkContainer">
+					<label for="physics">Physics</label>
+					<input id="physicsMark" type="number" name="physics" oninput="disableInput(event, 'Physics')">
+				</div>
+				<div class="subjectMarkContainer">
+					<label for="chemistry">Chemistry</label>
+					<input id="chemistryMark" type="number" name="chemistry" oninput="disableInput(event, 'Chemistry')">
+				</div>
+				<div class="subjectMarkContainer">
+					<label for="biology">Biology</label>
+					<input id="biologyMark" type="number" name="biology" oninput="disableInput(event, 'Biology')">
+				</div>
+				<div class="submitForm" onclick="twelthMarkCalculate()">
+					<h3>Get Result</h3>
+				</div>
+			</form>
+		</div>
+
+		<div class="scoreCardResult">
+			<h1>Result</h1>
+
+			<div class="totalMarks">
+				<h3>Total Marks : </h3>
+				<h3 id="totalMark"></h3>
+			</div>
+			<div class="percentage">
+				<h3>Percentage : </h3>
+				<h3 id="totalMarkPercentage"></h3>
+			</div>
+			<h3 id="displayFailedSubjects" style="color: red;">Failed Subjects</h3>
+			<div class="failedSubjects" id="displayFailedSubjects">
+				
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="./assets/js/twelthscorecard.js"></script>
+</body>
+</html>

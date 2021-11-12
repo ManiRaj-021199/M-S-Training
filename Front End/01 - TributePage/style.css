@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.rootContainer {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    width: 100%;
+}
+
+.playVideoContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(128, 128, 128);
+}
+
+.playVideoContainer .closeButton {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.tributePage {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.videoContainer, .imageContainer {
+    height: 30vh;
+    width: 100%;
+}
+
+.videoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.videoContainer .steveImg {
+    height: 95%;
+    width: 70%;
+    object-fit: cover;
+}
+
+.videoContainer .playImg {
+    width: 30%;
+    height: 70%;
+    cursor: pointer;
+}
+
+.imageContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.imageContainer img {
+    position: absolute;
+    right: -100%;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+    animation: slide 1.5s forwards;
+}
+
+@keyframes slide {
+    100% {
+        right: 0;
+    }
+}
+
+.bioData, .detailedData {
+    height: 40vh;
+    width: 100%;
+}
+
+.bioData {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bioData h1 {
+    height: 16%;
+    width: 80%;
+    font-weight: 500;
+    margin: 0 auto;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.detailedData {
+    padding: 15px 0;
+}
+
+.detailedData .head {
+    height: 16%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailedData .head h1 {
+    height: 100%;
+    width: 95%;
+    font-weight: 500;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailedData .head h2 {
+    cursor: pointer;
+    width: 5%;
+    text-align: end;
+}
+
+.detailedData p {
+    padding-top: 15px;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    text-align: justify;
+    line-height: 1.3;
+}
+
+.nodisplay {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .videoContainer .playImg {
+        height: 30%;
+    }
+
+    video {
+        height: 70%;
+        width: 70%;
+    }
+
+    .bioData h1 {
+        font-size: 1.5em;
+    }
+
+    .detailedData p {
+        font-size: 1em;
+    }
+
+    .imageContainer img {
+        object-fit: contain;
+    }
+}

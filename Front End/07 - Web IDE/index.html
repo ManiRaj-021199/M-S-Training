@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web IDE</title>
+
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="navBar">
+			<button onclick="runProgram()">RUN</button>
+
+			<div class="viewsContainer">
+				<button>VIEWS</button>
+
+				<div class="viewsDropDown">
+					<h1 onclick="openEditorView()">Editor View</h1>
+					<h1 onclick="openOutputView()">Output View</h1>
+					<h1 onclick="openDetailedView()">Detailed View</h1>
+				</div>
+			</div>
+
+			<div class="settingsContainer">
+				<button>SETTINGS</button>
+
+				<div class="settingsDropDown">
+					<div class="settingsDropDownContent">
+						<h1>FontSize</h1>
+						<input type="number" value="18" onchange="changeFontSize(value)" />
+					</div>
+					<div class="settingsDropDownContent">
+						<h1>Theme</h1>
+						<select name="themesSelector" id="themesSelector" onchange="changeTheme(value)">
+							<option value="lightTheme">LIGHT</option>
+							<option value="darkTheme">DARK</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="codingPart">
+			<div class="htmlCodeArea codeArea">
+				<h3>HTML</h3>
+				<textarea id="htmlCode" spellcheck="false"></textarea>
+				<span id="htmlSpan" onclick="extendSpan(id)">O</span>
+			</div>
+			<div class="cssCodeArea codeArea">
+				<h3>CSS</h3>
+				<textarea id="cssCode" spellcheck="false"></textarea>
+				<span id="cssSpan" onclick="extendSpan(id)">O</span>
+			</div>
+			<div class="jsCodeArea codeArea">
+				<h3>JS</h3>
+				<textarea id="jsCode" spellcheck="false"></textarea>
+				<span id="jsSpan" onclick="extendSpan(id)">O</span>
+			</div>
+		</div>
+		<div class="outputPart">
+			<iframe id="outputFrame"></iframe>
+		</div>
+	</div>
+
+	<script src="./script.js"></script>
+</body>
+</html>

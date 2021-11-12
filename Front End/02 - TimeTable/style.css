@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: deepskyblue;
+    color: white;
+}
+
+.dummy {
+    width: 10%;
+}
+
+header h3 {
+    font-weight: 100;
+    background-color: white;
+    color: red;
+    padding: 10px;
+    cursor: pointer;
+}
+
+header h3:active {
+    background-color: deepskyblue;
+}
+
+header p {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+/* .generateTimeTable {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.boxContainer {
+    height: 30%;
+    width: 30%;
+    border: 2px solid deepskyblue;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 0;
+}
+
+.rowContainer, .columnContainer {
+    height: 30%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.rowContainer input, .columnContainer input {
+    height: 50%;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid deepskyblue;
+    outline: none;
+}
+
+#rownodisplay, #colnodisplay {
+    display: none;
+}
+
+.boxContainer button {
+    height: 20%;
+    width: 80%;
+    margin: 0 auto;
+    outline: none;
+    border: 2px solid deepskyblue;
+    border-radius: 50px;
+    background-color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
+
+.boxContainer button:active {
+    background-color: deepskyblue;
+    color: white;
+    transition: 0.1s;
+} */
+
+.timetable {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timetableContainer {
+    height: 95%;
+    width: 95%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tTable {
+    width: 95%;
+    height: 90%;
+    padding: 10px 0;
+}
+
+.tPeriods {
+    width: 95%;
+    height: 10%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tPeriods h3 {
+    height: 70%;
+    width: 13%;
+    margin: 0 auto;
+    padding: 10px 0;
+    background-color: deepskyblue;
+    color: white;
+    font-weight: 100;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    height: 100%;
+    width: 100%;
+}
+
+table tr td, table tr th {
+    height: 10%;
+    width: 10%;
+    border: 1px solid black;
+    padding: 15px;
+    text-align: center;
+}
+
+table tr td {
+    font-size: 1.2rem;
+}

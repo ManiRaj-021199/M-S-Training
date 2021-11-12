@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    height: 99.99vh;
+    width: 100%;
+    border: 3px solid #FB723A;
+}
+
+.container {
+    width: 95%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+header {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #FB723A;
+    color: #FB723A;
+}
+
+.dummy {
+    height: 100px;
+    width: 200px;
+}
+
+.contents {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    width: 40%;
+    height: 90%;
+    justify-content: space-between;
+}
+
+.dropDownNameContainer {
+    width: 48%;
+}
+
+.numberContainer, .nameContainer, .dateContainer {
+    width: 48%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dummyForFooter {
+    height: 100%;
+    width: 15%;
+}
+
+.numberContainer, .nameContainer {
+    height: 100%;
+    background-color: #FB723A;
+    color: white;
+}
+
+.nameContainer {
+    justify-content: space-evenly;
+}
+
+.dateContainer {
+    background-color: #FB723A;
+    color: white;
+}
+
+.dropDownContent {
+    display: none;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+    background-color: lightblue;
+    margin-top: 3px;
+}
+
+.show {
+    display: block;
+}
+
+.dropDownContent h3 {
+    padding: 10px 0;
+    color: black;
+    cursor: pointer;
+}
+
+.dropDownContent h3:hover {
+    background-color: black;
+    color: white;
+}
+
+.nameContainer {
+    width: 100%;
+}
+
+.dateContainer {
+    width: 40%;
+}
+
+.videoSection {
+    height: 55vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: -1;
+}
+
+.liveVideoContainer, .previewVideoContainer {
+    height: 100%;
+    width: 40%;
+}
+
+.liveVideoContainer h3, .previewVideoContainer h3 {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid gray;
+    border-bottom: none;
+}
+
+.liveVideoContainer h3 {
+    color: rgb(6, 6, 119);
+}
+
+.previewVideoContainer h3 {
+    color: green;
+}
+
+.liveVideoContainer img, .previewVideoContainer img {
+    height: 85%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.liveVideoContainer img {
+    border: 5px solid rgb(6, 6, 119);
+}
+
+.previewVideoContainer img {
+    border: 5px solid green;
+}
+
+footer {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.okContainer, .notOkContainer {
+    font-size: 1rem;
+    height: 15%;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+}
+
+.okContainer {
+    background-color: green;
+    margin-bottom: 15px;
+}
+
+.notOkContainer {
+    background-color: red;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    header h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .left {
+        width: 48%;
+    }
+
+    .dropDownNameContainer, .numberContainer {
+        width: 48%;
+    }
+
+    .nameContainer {
+        padding: 5px;
+    }
+
+    .dateContainer {
+        width: 48%;
+    }
+
+    .dummyForFooter {
+        width: 0;
+        height: 0;
+    }
+
+    .numberContainer h3, .nameContainer h3, .dateContainer h3 {
+        font-size: 0.8rem;
+    }
+
+    .videoSection {
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .liveVideoContainer, .previewVideoContainer {
+        width: 100%;
+        height: 44%;
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .okContainer, .notOkContainer {
+        width: 30%;
+        height: 70%;
+        margin-bottom: 0;
+    }
+}

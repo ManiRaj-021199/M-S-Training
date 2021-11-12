@@ -1,0 +1,959 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* NavBar */
+.site-logo {
+    height: 200px;
+    width: 200px;
+    margin: -30px 0;
+}
+
+ul {
+    z-index: 98;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header{
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(45deg, #2092CF, #00DA28);
+}
+
+.hamburger {
+    display: none;
+    margin-right: 25px;
+    z-index: 98;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 5rem;
+}
+
+.nav-link{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.nav-link:hover{
+    color: #7d7b85;
+}
+
+.sign-up {
+    background: white;
+    color: black;
+    padding: 10px 15px;
+    margin-right: 25px;
+    border-radius: 15px;
+}
+
+.sign-up:hover {
+    background: black;
+    color: white;
+    transition: 0.5s;
+}
+
+.nav-logo {
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: #482ff7;
+}
+
+@media only screen and (max-width: 950px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background: linear-gradient(45deg, #00DA28 , #2092CF);
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .sign-up {
+        color: black !important;
+    }
+
+    .sign-up:hover {
+        color: white !important;
+    }
+
+    .nav-link {
+        color: white;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        -webkit-transform: translateY(8px) rotate(45deg);
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        -webkit-transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background: linear-gradient(45deg, #00D014, #00A3DE);
+}
+
+.footerContent {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.siteDetails {
+    width: 40%;
+    margin-top: 5%;
+}
+
+.siteDetails img {
+    height: 175px;
+    width: 250px;
+    background: white;
+    margin: 25px;
+}
+
+.siteDetails p {
+    margin: 10px 25px;
+    font-size: 18px;
+    color: white;
+}
+
+.contactUs {
+    width: 40%;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.contactUs form {
+    margin-top: 10%;
+}
+
+.contactUs form input {
+    height: 50px;
+    width: 300px;
+    margin: 10px 0 10px 0;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 18px;
+    outline: none;
+}
+
+.contactUs form h3 {
+    font-size: xx-large;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.contactUs form button {
+    border: 2px solid white;
+    color: white;
+    border-radius: 50px;
+    margin-top: 15px;
+    padding: 15px 25px 15px 25px;
+    font-size: 18px;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Responsive Footer */
+@media only screen and (max-width: 900px) {
+    .footerContent {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .siteDetails {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contactUs {
+        width: 100%;
+    }
+}
+
+.searchBoxes {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.searchDoctorForm {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.autoCompletePlaces {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.autoCompletePlaces input, .autoCompleteDoctor input {
+    width: 280px;
+    padding: 8px 20px;
+    font-size: 1.5rem;
+    border: 2px solid #00A3DE;
+    outline: none;
+}
+
+.suggessionBox {
+    width: 100%;
+}
+
+.suggessionBox li {
+    width: 100%;
+    text-align: start;
+    padding: 8px 20px;
+    font-size: 1.5rem;
+    background: lightgrey;
+    color: black;
+    cursor: pointer;
+}
+
+.suggessionBox li:hover {
+    background: #474747;
+    color: white;
+}
+
+.searchDoctorForm input[type="submit"] {
+    font-size: 1.5rem;
+    padding: .8rem 10rem;
+    height: 3.65rem;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #00A3DE;
+    background: linear-gradient(45deg, #00D014, #00A3DE);
+}
+
+.doctorBanners {
+    height: 50vh;
+    width: 100%;
+    margin: 0 auto;
+    background: gray;
+}
+
+.doctorBanners h3 {
+    font-size: 7rem;
+    font-weight: 900;
+    margin-top: -220px;
+    text-align: center;
+    z-index: 999;
+    color: black;
+}
+
+.doctorBanners img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.services h1 {
+    color: rgb(66, 66, 66);
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.servicesLine {
+    width: 4%;
+    height: 3px;
+    margin: 0 auto;
+    background: rgb(66, 66, 66);
+}
+
+.serviceCategories {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.serviceCard {
+    width: 30%;
+    margin: 30px 10px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.serviceCard h2 {
+    color: rgb(66, 66, 66);
+    margin: 25px 0 10px 0;
+    font-size: 2.2rem;
+}
+
+.serviceCard p {
+    color: gray;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.userReviews {
+    margin-bottom: 50px;
+}
+
+.reviews {
+    width: 70%;
+    margin: 0 auto;
+    background: linear-gradient(130deg, #01A6D0, #9cc9d6);
+    border-radius: 15px;
+}
+
+.userReviews .reviews .reviewTitle {
+    color: black;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    padding: 25px 0 10px 0;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userPic {
+    height: 140px;
+    width: 25%;
+    border-radius: 50%;
+    margin: 25px;
+}
+
+.userPic img {
+    height: 140px;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userDetail {
+    width: 35%;
+    text-align: start;
+}
+
+.userDetail h3 {
+    color: rgb(20, 20, 20);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.userDetail p {
+    color: rgb(40, 40, 40);
+    font-size: 1.3rem;
+}
+
+.userReview {
+    width: 100%;
+    text-align: justify;
+    padding: 0 50px 0 0;
+}
+
+.userReview p {
+    color: rgb(20, 20, 20);
+    font-size: 1.3rem;
+    line-height: 2.2rem;
+}
+
+.pagination {
+    width: 5%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.smallCircle {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    /*background: #01A6D0;*/
+    border: 2.5px solid #01A6D0;
+}
+
+
+/* Responsive  */
+@media only screen and (max-width: 1200px) {
+    .searchDoctorForm {
+        flex-direction: column;
+    }
+
+    .doctorBanners h3 {
+        margin-top: -250px;
+    }
+
+    input {
+        margin: 10px 0;
+    }
+
+    .suggessionBox {
+        margin-top: -10px;
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+    .doctorBanners h3 {
+        font-size: 5rem;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+}
+
+.consultation {
+    margin: 5% 0;
+}
+
+/* Doctor Search */
+.doctorSearch {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.searchContent {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.searchContent h1 {
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.searchBox {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F6F6F6;
+    border-radius: 25px;
+    padding: 35px 0 35px 0;
+}
+
+.searchBox input[type="text"] {
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #CCC;
+    color: #555;
+    height: 50px;
+    left: 50%;
+    margin: -20px 0 15px -100px;
+    padding: 15px 0px;
+    position: relative;
+    top: 50%;
+    width: 200px;
+}
+
+.blockButton {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    background: linear-gradient(45deg, #00D014, #00A3DE);
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Responsive Doctor Search */
+@media only screen and (max-width: 900px) {
+    .doctorSearch {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .searchContent {
+        width: 100%;
+        align-items: center;
+        margin: 35px 0 25px 0;
+    }
+
+    .searchContent h1 {
+        font-size: 30px;
+    }
+
+    .searchBox {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .searchContent h1 {
+        font-size: 25px;
+    }
+
+    .searchBox {
+        width: 80%;
+    }
+}
+
+/* Top Rated Doctor */
+.topRatedDoctor {
+    padding: 50px 0 50px 0;
+}
+
+.trContent {
+    margin-bottom: 30px;
+}
+
+.trContent h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 3em;
+    font-weight: bolder;
+}
+
+.trContent h5 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 900;
+    color: #67627B;
+}
+
+.doctorCards {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.doctorCard {
+    width: 30%;
+    font-size: 1.5em;
+    margin: 30px 0 30px 0;
+    padding: 30px;
+    text-align: center;
+    background: #EAF8FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.doctorCard p {
+    margin-bottom: 1.5em;
+}
+
+.doctor1Image {
+    background: url('./images/consultation/doctor1.png');
+}
+
+.doctor2Image {
+    background: url('./images/consultation/doctor2.png');
+}
+
+.doctor3Image {
+    background: url('./images/consultation/doctor3.png');
+}
+
+.doctorPicture {
+    height: 100px;
+    width: 100px;
+    margin-top: -75px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.doctorName, .desc {
+    color: #3B0672;
+    font-weight: 900;
+}
+
+.highly-recommended {
+    color: #379FFF;
+}
+
+.address {
+    color: #A3ACB2;
+}
+
+/* Responsive Top Rated Doctors */
+@media only screen and (max-width: 900px) {
+    .doctorCards {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .doctorCard {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .trContent h1 {
+        font-size: 23px;
+    }
+
+    .trContent h5 {
+        font-size: 12px;
+    }
+
+    .doctorCard {
+        width: 80%;
+    }
+}
+
+/* Top-searched Specialities */
+.specialities {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.specialitiesContent {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.specialitiesContent h1 {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.specialitiesContent button {
+    border: 2px solid #6771FB;
+    color: #6771FB;
+    border-radius: 50px;
+    margin-top: 35px;
+    padding: 15px 25px 15px 25px;
+    font-size: 18px;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.specialitiesCategory {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.specialityCard {
+    background: #F6F6F6;
+    font-size: 1.5em;
+    width: 30%;
+    padding: 15px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.specialityCard img {
+    padding: 20px;
+}
+
+.cardTitle {
+    padding-bottom: 10px;
+    color: #7A7B7C;
+}
+
+/* Responsive Specialities */
+@media only screen and (max-width: 900px) {
+    .specialities {
+        flex-direction: column;
+    }
+
+    .specialitiesContent h1 {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .specialitiesContent button {
+        font-size: 12px;
+    }
+
+    .specialitiesCategory {
+        width: 80%;
+        margin: 25px 0 25px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .specialitiesContent h1 {
+        font-size: 22px;
+    }
+
+    .specialityCard {
+        width: 40%;
+    }
+
+    .specialitiesContent button {
+        border: 1px solid #6771FB;
+        border-radius: 50px;
+        margin-top: 35px;
+        padding: 10px 20px 10px 20px;
+        font-size: 12px;
+        outline: none;
+        background: transparent;
+        cursor: pointer;
+    }
+}
+
+/* In-Clinic Consultation */
+.inClinicContent {
+    margin: 35px 0;
+    text-align: center;
+}
+
+.inClinicContent h1 {
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.inClinicContent h3 {
+    font-size: 1.5em;
+    color: #7E7486;
+}
+
+.inClinicCards {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+.inClinicCard {
+    width: 30%;
+    margin: 20px 35px 50px 35px;
+}
+
+.inClinicCard img {
+    height: 300px;
+    width: 400px;
+    margin-bottom: 25px;
+}
+
+.inClinicCard h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.inClinicCard h4 {
+    font-size: 1.3em;
+    color: #7E7486;
+}
+
+/* Responsive In-Clinic Consultation */
+@media only screen and (max-width: 900px) {
+    .inClinicContent h1 {
+        font-size: 25px;
+    }
+
+    .inClinicContent h3 {
+        font-size: small;
+    }
+
+    .inClinicCards {
+        width: 70%;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .inClinicCard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .inClinicContent h1 {
+        font-size: 20px;
+    }
+
+    .inClinicCards {
+        width: 85%;
+    }
+
+    .inClinicCard {
+        width: 100%;
+    }
+
+    .inClinicCard img {
+        width: 100%;
+    }
+}
+
+/* Partners */
+.partners {
+    text-align: center;
+    padding: 25px;
+}
+
+.partners h1 {
+    color: #5E93DC;
+    font-size: 40px;
+    font-weight: 900;
+    margin: 20px 0;
+}
+
+.partners button {
+    border: 2px solid #6771FB;
+    color: #6771FB;
+    border-radius: 50px;
+    margin-top: 35px;
+    padding: 15px 25px 15px 25px;
+    font-size: 18px;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.partner-logos img {
+    height: 200px;
+    width: 80%;
+    margin: 0 auto;
+    margin: 50px 0 15px 0;
+}
+
+/* Responsive Partners */
+@media only screen and (max-width: 900px) {
+    .partners h1 {
+        font-size: 25px;
+    }
+
+    .partners button {
+        font-size: 12px;
+    }
+
+    .partner-logos img {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .partners h1 {
+        font-size: 20px;
+    }
+}

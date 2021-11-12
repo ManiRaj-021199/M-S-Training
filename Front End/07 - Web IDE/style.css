@@ -1,0 +1,146 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Light Mode */
+.container {
+	height: 100vh;
+	width: 100%;
+}
+
+.navBar {
+	height: 10%;
+	width: 100%;
+	border-bottom: 2px solid rgb(0, 183, 255);
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.viewsContainer, .settingsContainer {
+	height: 100%;
+	margin-right: 20px;
+}
+
+.navBar button {
+	margin-right: 20px;
+	padding: 0 15px;
+	height: 60%;
+}
+
+.navBar .viewsContainer button, .navBar .settingsContainer button {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+}
+
+.viewsDropDown, .settingsDropDown {
+	background-color: rgb(0, 183, 255);
+	color: white;
+	text-align: center;
+	display: none;
+	position: relative;
+	width: 100%;
+	font-size: .65rem;
+	margin-top: 7%;
+}
+
+.viewsContainer:hover .viewsDropDown, .settingsContainer:hover .settingsDropDown {
+	display: inline-block;
+	z-index: 2;
+}
+
+.settingsDropDownContent {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.viewsDropDown h1, .settingsDropDown .settingsDropDownContent h1 {
+	padding: 8px 0;
+	cursor: pointer;
+}
+
+.settingsDropDownContent h1 {
+	height: 50%;
+	width: 50%;
+}
+
+.settingsDropDownContent input, .settingsDropDownContent select {
+	height: 50%;
+	width: 40%;
+	text-align: center;
+}
+
+.viewsDropDown h1:hover {
+	background-color: white;
+	color: rgb(0, 183, 255);
+}
+
+.codingPart {
+	height: 50%;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.codeArea {
+	height: 95%;
+	width: 32%;
+}
+
+.codeArea h3 {
+	text-align: center;
+	height: 5%;
+	color: rgb(0, 183, 255);
+	margin-bottom: 2px;
+}
+
+span {
+	position: relative;
+	display: inline-block;
+	bottom: 95%;
+	left: 94.5%;
+	background-color: rgb(0, 183, 255);
+	color: white;
+	padding: 5px;
+	border-top-right-radius: 10px;
+	cursor: pointer;
+	font-weight: 900;
+}
+
+.codeArea textarea {
+	height: 95%;
+	width: 100%;
+	resize: none;
+	outline: none;
+	padding: 5px;
+	border-width: 2px;
+	border-color: rgb(0, 183, 255);
+	border-radius: 8px;
+	font-size: 18px;
+}
+
+.outputPart {
+	height: 40%;
+	width: 100%;
+	border-top: 2px solid rgb(0, 183, 255);
+}
+
+.outputPart iframe {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border: none;
+}
+
+/* Dark Mode */
+.darkMode {
+	background-color: #282C34;
+	color: white;
+}

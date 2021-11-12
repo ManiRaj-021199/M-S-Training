@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute Page</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="rootContainer">
+        <div class="playVideoContainer nodisplay">
+            <div class="closeButton" onclick="closeVideo()">
+                <h1>X</h1>
+            </div>
+            <video src="./videos/v1.mp4" controls autoplay></video>
+        </div>
+        <div class="tributePage">
+            <div class="videoContainer">
+                <img  class="steveImg" src="./images/thumpnail.jpg" alt="thumpnail">
+                <img class="playImg" src="./images/play.jpg" alt="Play" onclick="playVideo()">
+            </div>
+            <div class="bioData">
+                <h1 onclick="showDetail('birth')">Birth</h1>
+                <h1 onclick="showDetail('childhood')">Childhood</h1>
+                <h1 onclick="showDetail('apple')">Apple</h1>
+                <h1 onclick="showDetail('awards')">Honors and awards</h1>
+                <h1 onclick="showDetail('death')">Death</h1>
+            </div>
+            <div class="detailedData nodisplay">
+                <div class="head">
+                    <h1 id="bioHeadId"></h1>
+                    <h2 onclick="closeDetail()">X</h2>
+                </div>
+                <p id="bioDetailId"></p>
+            </div>
+            <div id="imageSlider" class="imageContainer"></div>
+        </div>
+    </div>
+
+    <!-- Script Files -->
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.scoreCardContainer {
+	height: 100vh;
+	width: 100%;
+	background-color: teal;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.scoreCardContent, .scoreCardResult {
+	width: 600px;
+	margin: 0 auto;
+	background-color: white;
+	color: teal;
+	border-radius: 25px;
+	box-shadow: 8px 7px 8px black;
+}
+
+.scoreCardResult {
+	display: none;
+}
+
+.scoreCardResult h1 {
+	color: teal;
+	text-align: center;
+	border-bottom: 2px solid teal;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding-bottom: 5px;
+}
+
+.scoreCardResult h3 {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: teal;
+}
+
+.scoreCardResult div {
+	width: 50%;
+	margin: 0 35%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: teal;
+}
+
+.failedSubjects {
+	display: flex;
+	flex-direction: column;
+	list-style-type: upper-hexadecimal;
+}
+
+.failedSubjects li {
+	color: red;
+	margin: 10px 0;
+	font-size: 1.2rem;
+	font-weight: 900;
+}
+
+#errorMsg {
+	display: none;
+	text-align: center;
+	color: red;
+	margin-top: 10px;
+}
+
+.scoreCardContent h2 {
+	width: 75%;
+	text-align: center;
+	padding: 5px;
+	border-bottom: 2px solid teal;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.subjectMarkContainer {
+	width: 75%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.subjectMarkContainer label {
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.subjectMarkContainer input {
+	border: 1px solid teal;
+	outline: none;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 1.2rem;
+	border-radius: 5px;
+}
+
+.submitForm {
+	width: 75%;
+	margin: 0 auto;
+	text-align: center;
+	background-color: teal;
+	color: white;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 15px 0;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+.backToHome {
+	position: absolute;
+	right: 25px;
+	bottom: 25px;
+	background-color: white;
+	color: teal;
+	border-radius: 25px;
+	box-shadow: 8px 7px 8px black;
+	padding: 10px 20px;
+	cursor: pointer;
+}
