@@ -5,17 +5,19 @@ namespace ContactBookConsoleApp
 {
 	class ContactBook
 	{
-		List<Contact> lstAllContacts;
+		List<Contact> Contacts;
 
 		public ContactBook()
 		{
-			lstAllContacts = new List<Contact>();
+			if(Contacts == null)
+			{
+				Contacts = new List<Contact>();
+			}
 		}
 
 		public void ViewMenu()
 		{
-			List<int> lstUserOptions = new List<int>{ 1, 2, 3, 4, 5, 6 };
-			int iUserOption;
+			int nUserOption;
 
 			Console.WriteLine("\nWhat you like to do?\n");
 
@@ -27,42 +29,39 @@ namespace ContactBookConsoleApp
 			Console.WriteLine("6. Quit");
 
 			Console.Write("\nChoose your Option: ");
-			try
-			{
-				iUserOption = Convert.ToInt32(Console.ReadLine());
 
-				if(lstUserOptions.Contains(iUserOption))
+			int.TryParse(Console.ReadLine(), out nUserOption);
+
+			if(nUserOption > 0)
+			{
+				switch(nUserOption)
 				{
-					switch(iUserOption)
-					{
-						case 1:
-							AddNewContact(new Contact());
-							break;
-						case 2:
-							EditContact();
-							break;
-						case 3:
-							DeleteContact();
-							break;
-						case 4:
-							SearchContact();
-							break;
-						case 5:
-							ViewAllContacts();
-							break;
-						case 6:
-							return;
-					}
-				}
-				else
-				{
-					Console.WriteLine("\nYour Choice was Invalid.Try again...");
-					ViewMenu();
+					case 1:
+						AddNewContact(new Contact());
+						break;
+					case 2:
+						EditContact();
+						break;
+					case 3:
+						DeleteContact();
+						break;
+					case 4:
+						SearchContact();
+						break;
+					case 5:
+						ViewAllContacts();
+						break;
+					case 6:
+						return;
+					default:
+						Console.WriteLine("\nYour Choice was Invalid.Try again...");
+						ViewMenu();
+						break;
 				}
 			}
-			catch(Exception e)
+			else
 			{
-				Console.WriteLine("\nYour Choice was Invalid.Try again...");
+				Console.WriteLine("Give a Number Input...");
 				ViewMenu();
 			}
 		}
@@ -70,34 +69,36 @@ namespace ContactBookConsoleApp
 		public void AddNewContact(Contact contact)
 		{
 			Console.WriteLine("\nEnter Details to Add New Contact:");
+			long lTempPhoneNumber;
 
-			try
+			Console.Write("Name\t\t: ");
+			contact.Name = Console.ReadLine();
+			Console.Write("First Name\t: ");
+			contact.FirstName = Console.ReadLine();
+			Console.Write("Last Name\t: ");
+			contact.LastName = Console.ReadLine();
+			Console.Write("Phone Number\t: ");
+			Int64.TryParse(Console.ReadLine(), out lTempPhoneNumber);
+
+			if(lTempPhoneNumber != 0)
 			{
-				Console.Write("Name\t\t: ");
-				contact.sName = Console.ReadLine();
-				Console.Write("First Name\t: ");
-				contact.sFirstName = Console.ReadLine();
-				Console.Write("Last Name\t: ");
-				contact.sLastName = Console.ReadLine();
-				Console.Write("Phone Number\t: ");
-				contact.lPhoneNumber = Convert.ToInt64(Console.ReadLine());
-				Console.Write("Email\t\t: ");
-				contact.sEmail = Console.ReadLine();
-
-				lstAllContacts.Add(contact);
-
-				Console.WriteLine("\nContact Added Successfully...\n\n");
+				contact.PhoneNumber = lTempPhoneNumber;
 			}
-			catch(Exception e)
+			else
 			{
-				Console.WriteLine("\nSomething went Wrong.Try Again...");
-
+				Console.WriteLine("\nInvalid Phone Number...");
 				AddNewContact(new Contact());
+
+				return;
 			}
-			finally
-			{
-				ViewMenu();
-			}
+
+			Console.Write("Email\t\t: ");
+			contact.Email = Console.ReadLine();
+
+			Contacts.Add(contact);
+
+			Console.WriteLine("\nContact Added Successfully...\n\n");
+			ViewMenu();
 		}
 
 		public int GetContactIndex()
@@ -105,22 +106,22 @@ namespace ContactBookConsoleApp
 			long lPhoneNumber;
 			int nIndex = -1;
 
-			try
-			{
-				lPhoneNumber = Convert.ToInt64(Console.ReadLine());
+			Int64.TryParse(Console.ReadLine(), out lPhoneNumber);
 
-				for(int i = 0; i < lstAllContacts.Count; i++)
+			if(lPhoneNumber != 0)
+			{
+				for(int i = 0; i < Contacts.Count; i++)
 				{
-					if(lstAllContacts[i].lPhoneNumber == lPhoneNumber)
+					if(Contacts[i].PhoneNumber == lPhoneNumber)
 					{
 						nIndex = i;
 						break;
 					}
 				}
 			}
-			catch(Exception e)
+			else
 			{
-				Console.WriteLine("Something went Wrong. Try again...");
+				Console.WriteLine("Give a Correct Phone Number.");
 			}
 
 			return nIndex;
@@ -128,169 +129,145 @@ namespace ContactBookConsoleApp
 
 		public void EditContact()
 		{
-
 			Console.Write("\nEnter Mobile Number to Edit Contact: ");
 
-			try
+			int nIndex = GetContactIndex();
+
+			if(nIndex != -1)
 			{
-				int iIdForEditableContact = GetContactIndex();
+				int nUserOption;
 
-				if(iIdForEditableContact != -1)
+				Console.WriteLine($"\nContactDetails: ");
+				Console.WriteLine($"Name\t: {Contacts[nIndex].Name}");
+				Console.WriteLine($"First Name\t: {Contacts[nIndex].FirstName}");
+				Console.WriteLine($"Last Name\t: {Contacts[nIndex].LastName}");
+				Console.WriteLine($"Phone Number\t: {Contacts[nIndex].PhoneNumber}");
+				Console.WriteLine($"EMail\t: {Contacts[nIndex].Email}");
+
+				Console.WriteLine("\nWhich field you want to Edit: ");
+				Console.WriteLine("1. Name");
+				Console.WriteLine("2. First Name");
+				Console.WriteLine("3. Last Name");
+				Console.WriteLine("4. Phone Number");
+				Console.WriteLine("5. Email");
+
+				Console.Write("\nChoose your Option: ");
+				int.TryParse(Console.ReadLine(), out nUserOption);
+
+				if(nUserOption > 0)
 				{
-					List<int> lstUserOptions = new List<int> { 1, 2, 3, 4, 5 };
-
-					Console.WriteLine($"\nContactDetails: ");
-					Console.WriteLine($"Name\t: {lstAllContacts[iIdForEditableContact].sName}");
-					Console.WriteLine($"First Name\t: {lstAllContacts[iIdForEditableContact].sFirstName}");
-					Console.WriteLine($"Last Name\t: {lstAllContacts[iIdForEditableContact].sLastName}");
-					Console.WriteLine($"Phone Number\t: {lstAllContacts[iIdForEditableContact].lPhoneNumber}");
-					Console.WriteLine($"EMail\t: {lstAllContacts[iIdForEditableContact].sEmail}");
-
-					Console.WriteLine("\nWhich field you want to Edit: ");
-					Console.WriteLine("1. Name");
-					Console.WriteLine("2. First Name");
-					Console.WriteLine("3. Last Name");
-					Console.WriteLine("4. Phone Number");
-					Console.WriteLine("5. Email");
-
-					try
+					switch(nUserOption)
 					{
-						Console.Write("\nChoose your Option: ");
-						int iUserOption = Convert.ToInt32(Console.ReadLine());
-
-						if(lstUserOptions.Contains(iUserOption))
-						{
-							switch(iUserOption)
-							{
-								case 1:
-									Console.Write("Name\t\t: ");
-									string sName = Console.ReadLine();
-									lstAllContacts[iIdForEditableContact].sName = sName;
-									break;
-								case 2:
-									Console.Write("First Name\t: ");
-									string sFirstName = Console.ReadLine();
-									lstAllContacts[iIdForEditableContact].sFirstName = sFirstName;
-									break;
-								case 3:
-									Console.Write("Last Name\t: ");
-									string sLastName = Console.ReadLine();
-									lstAllContacts[iIdForEditableContact].sLastName = sLastName;
-									break;
-								case 4:
-									Console.Write("Phone Number\t: ");
-									long newPhoneNumber = Convert.ToInt64(Console.ReadLine());
-								    lstAllContacts[iIdForEditableContact].lPhoneNumber = newPhoneNumber;
-									break;
-								case 5:
-									Console.Write("Email\t\t: ");
-									string  sEmail = Console.ReadLine();
-									lstAllContacts[iIdForEditableContact].sEmail = sEmail;
-									break;
-							}
+						case 1:
+							Console.Write("Name\t\t: ");
+							string sName = Console.ReadLine();
+							Contacts[nIndex].Name = sName;
 							Console.WriteLine("Data Modified...");
-						}
-						else
-						{
+							break;
+						case 2:
+							Console.Write("First Name\t: ");
+							string sFirstName = Console.ReadLine();
+							Contacts[nIndex].FirstName = sFirstName;
+							Console.WriteLine("Data Modified...");
+							break;
+						case 3:
+							Console.Write("Last Name\t: ");
+							string sLastName = Console.ReadLine();
+							Contacts[nIndex].LastName = sLastName;
+							Console.WriteLine("Data Modified...");
+							break;
+						case 4:
+							Console.Write("Phone Number\t: ");
+							long newPhoneNumber = Convert.ToInt64(Console.ReadLine());
+						    Contacts[nIndex].PhoneNumber = newPhoneNumber;
+							Console.WriteLine("Data Modified...");
+							break;
+						case 5:
+							Console.Write("Email\t\t: ");
+							string  sEmail = Console.ReadLine();
+							Contacts[nIndex].Email = sEmail;
+							Console.WriteLine("Data Modified...");
+							break;
+						default:
 							Console.WriteLine("\nInvalid Option.Try again...");
-						}
-					}
-					catch(Exception e)
-					{
-						Console.WriteLine("\nInvalid Option.Try again...");
-
-						EditContact();
+							EditContact();
+							break;
 					}
 				}
 				else
 				{
-					Console.WriteLine("\nNo Records Found...\n");
+					Console.WriteLine("\nInvalid Option.Try again...");
+					EditContact();
 				}
-
-				ViewMenu();
 			}
-			catch(Exception e)
+			else
 			{
-				Console.WriteLine("\nSomething went Wrong.Try Again...");
-				EditContact();
+				Console.WriteLine("\nNo Records Found...\n");
 			}
+			ViewMenu();
 		}
 
 		public void DeleteContact()
 		{
-			try
-			{
-				Console.Write("\nEnter Mobile Number to Delete Contact: ");
+			Console.Write("\nEnter Mobile Number to Delete Contact: ");
 
-				int nIndex = GetContactIndex();
+			int nIndex = GetContactIndex();
 				
-				if(nIndex >= 0)
-				{
-					lstAllContacts.RemoveAt(nIndex);
-					Console.WriteLine("\nData Deleted Successfully.\n");
-				}
-				else
-				{
-					Console.WriteLine("\nNo Records Found...\n");
-				}
-
-				ViewMenu();
-			}
-			catch(Exception e)
+			if(!(nIndex < 0))
 			{
-				Console.WriteLine("Something went wrong.Try again...");
-				DeleteContact();
+				Contacts.RemoveAt(nIndex);
+				Console.WriteLine("\nData Deleted Successfully.\n");
 			}
+			else
+			{
+				Console.WriteLine("\nNo Records Found...\n");
+			}
+
+			ViewMenu();
 		}
 
 		public void SearchContact()
 		{
-			try
-			{
-				Console.Write("\nEnter Mobile Number to Search Contact: ");
+			Console.Write("\nEnter Mobile Number to Search Contact: ");
 
-				int iIdForEditableContact = GetContactIndex();
-				if(iIdForEditableContact != -1)
-				{
-					Console.WriteLine($"\nContactDetails: ");
-					Console.WriteLine($"Name\t\t: {lstAllContacts[iIdForEditableContact].sName}");
-					Console.WriteLine($"First Name\t: {lstAllContacts[iIdForEditableContact].sFirstName}");
-					Console.WriteLine($"Last Name\t: {lstAllContacts[iIdForEditableContact].sLastName}");
-					Console.WriteLine($"Phone Number\t: {lstAllContacts[iIdForEditableContact].lPhoneNumber}");
-					Console.WriteLine($"EMail\t\t: {lstAllContacts[iIdForEditableContact].sEmail}");
-				}
-				else
-				{
-					Console.WriteLine("\nNo Records Found...\n");
-				}
-
-				ViewMenu();
-			}
-			catch(Exception e)
+			int nIndex = GetContactIndex();
+			if(nIndex != -1)
 			{
-				Console.WriteLine("\nInvalid Selection. Try again...");
-				SearchContact();
+				Console.WriteLine($"\nContactDetails: ");
+				Console.WriteLine($"Name\t\t: {Contacts[nIndex].Name}");
+				Console.WriteLine($"First Name\t: {Contacts[nIndex].FirstName}");
+				Console.WriteLine($"Last Name\t: {Contacts[nIndex].LastName}");
+				Console.WriteLine($"Phone Number\t: {Contacts[nIndex].PhoneNumber}");
+				Console.WriteLine($"EMail\t\t: {Contacts[nIndex].Email}");
 			}
+			else
+			{
+				Console.WriteLine("\nNo Records Found...\n");
+			}
+			ViewMenu();
 		}
 
 		public void ViewAllContacts()
 		{
-			if(lstAllContacts.Count < 1)
+			if(Contacts.Count < 1)
 			{
 				Console.WriteLine("\nNo Records Found.\n");
 			}
-			int count = 1;
-
-			for(int i = 0; i < lstAllContacts.Count; i++)
+			else
 			{
-				Console.WriteLine($"\nContact: {count}");
-				Console.WriteLine($"Name\t: {lstAllContacts[i].sName}");
-				Console.WriteLine($"First Name\t: {lstAllContacts[i].sFirstName}");
-				Console.WriteLine($"Last Name\t: {lstAllContacts[i].sLastName}");
-				Console.WriteLine($"Phone Number\t: {lstAllContacts[i].lPhoneNumber}");
-				Console.WriteLine($"EMail\t: {lstAllContacts[i].sEmail}");
+				int count = 1;
 
-				count += 1;
+				for(int i = 0; i < Contacts.Count; i++)
+				{
+					Console.WriteLine($"\nContact: {count}");
+					Console.WriteLine($"Name\t: {Contacts[i].Name}");
+					Console.WriteLine($"First Name\t: {Contacts[i].FirstName}");
+					Console.WriteLine($"Last Name\t: {Contacts[i].LastName}");
+					Console.WriteLine($"Phone Number\t: {Contacts[i].PhoneNumber}");
+					Console.WriteLine($"EMail\t: {Contacts[i].Email}");
+
+					count += 1;
+				}
 			}
 
 			ViewMenu();
