@@ -38,12 +38,15 @@ namespace ContactBookConsoleApp
 				{
 					case 1:
 						AddNewContact(new Contact());
+						ViewAllContacts();
 						break;
 					case 2:
 						EditContact();
+						ViewAllContacts();
 						break;
 					case 3:
 						DeleteContact();
+						ViewAllContacts();
 						break;
 					case 4:
 						SearchContact();
@@ -64,6 +67,8 @@ namespace ContactBookConsoleApp
 				Console.WriteLine("Give a Number Input...");
 				ViewMenu();
 			}
+
+			ViewMenu();
 		}
 
 		public void AddNewContact(Contact contact)
@@ -98,7 +103,6 @@ namespace ContactBookConsoleApp
 			Contacts.Add(contact);
 
 			Console.WriteLine("\nContact Added Successfully...\n\n");
-			ViewMenu();
 		}
 
 		public int GetContactIndex()
@@ -204,7 +208,6 @@ namespace ContactBookConsoleApp
 			{
 				Console.WriteLine("\nNo Records Found...\n");
 			}
-			ViewMenu();
 		}
 
 		public void DeleteContact()
@@ -222,8 +225,6 @@ namespace ContactBookConsoleApp
 			{
 				Console.WriteLine("\nNo Records Found...\n");
 			}
-
-			ViewMenu();
 		}
 
 		public void SearchContact()
@@ -244,7 +245,6 @@ namespace ContactBookConsoleApp
 			{
 				Console.WriteLine("\nNo Records Found...\n");
 			}
-			ViewMenu();
 		}
 
 		public void ViewAllContacts()
@@ -257,8 +257,13 @@ namespace ContactBookConsoleApp
 			{
 				int count = 1;
 
+				//Console.WriteLine("S.No\t| UserName\t| FirstName\t| LastName\t| PhoneNumber\t| EMail\t\t|");
+				//Console.WriteLine("-----------------------------------------------------------------------------------------");
+
 				for(int i = 0; i < Contacts.Count; i++)
 				{
+					//Console.WriteLine($"{count}\t|{Contacts[i].Name}\t|{Contacts[i].FirstName}\t|{Contacts[i].LastName}\t|{Contacts[i].PhoneNumber}\t|{Contacts[i].Email}\t\t|");
+
 					Console.WriteLine($"\nContact: {count}");
 					Console.WriteLine($"Name\t: {Contacts[i].Name}");
 					Console.WriteLine($"First Name\t: {Contacts[i].FirstName}");
@@ -269,8 +274,6 @@ namespace ContactBookConsoleApp
 					count += 1;
 				}
 			}
-
-			ViewMenu();
 		}
 	}
 }
