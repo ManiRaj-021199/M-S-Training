@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ContactBookAppWithADO
 {
 	class ContactBook
 	{
-		List<Contact> Contacts;
+		ContactBookDB contactBookDb;
 
 		public ContactBook()
 		{
-			if(Contacts == null)
-			{
-				Contacts = new List<Contact>();
-			}
+			contactBookDb = new ContactBookDB();
 		}
 
 		public void ViewMenu()
@@ -38,12 +34,15 @@ namespace ContactBookAppWithADO
 				{
 					case 1:
 						AddNewContact(new Contact());
+						ViewAllContacts();
 						break;
 					case 2:
 						EditContact();
+						ViewAllContacts();
 						break;
 					case 3:
 						DeleteContact();
+						ViewAllContacts();
 						break;
 					case 4:
 						SearchContact();
@@ -55,15 +54,15 @@ namespace ContactBookAppWithADO
 						return;
 					default:
 						Console.WriteLine("\nYour Choice was Invalid.Try again...");
-						ViewMenu();
 						break;
 				}
 			}
 			else
 			{
-				Console.WriteLine("Give a Number Input...");
-				ViewMenu();
+				Console.WriteLine("Give a Correct Input...");
 			}
+
+			ViewMenu();
 		}
 
 		public void AddNewContact(Contact contact)
@@ -95,7 +94,7 @@ namespace ContactBookAppWithADO
 			Console.Write("Email\t\t: ");
 			contact.Email = Console.ReadLine();
 
-			new ContactBookDB().AddContactToDB(contact);
+			contactBookDb.AddContactToDB(contact);
 		}
 
 		public void EditContact()
@@ -105,7 +104,7 @@ namespace ContactBookAppWithADO
 			Console.Write("\nEnter Mobile Number to Edit Contact: ");
 			Int64.TryParse(Console.ReadLine(), out lPhoneNumber);
 
-			new ContactBookDB().EditContactFromDB(lPhoneNumber);
+			contactBookDb.EditContactFromDB(lPhoneNumber);
 		}
 
 		public void DeleteContact()
@@ -115,7 +114,7 @@ namespace ContactBookAppWithADO
 			Console.Write("\nEnter Mobile Number to Delete Contact: ");
 			Int64.TryParse(Console.ReadLine(), out lPhoneNumber);
 
-			new ContactBookDB().DeleteContactFromDB(lPhoneNumber);
+			contactBookDb.DeleteContactFromDB(lPhoneNumber);
 		}
 
 		public void SearchContact()
@@ -125,12 +124,12 @@ namespace ContactBookAppWithADO
 
 			Int64.TryParse(Console.ReadLine(), out lPhoneNumber);
 
-			new ContactBookDB().SearchContactFromDB(lPhoneNumber);
+			contactBookDb.SearchContactFromDB(lPhoneNumber);
 		}
 
 		public void ViewAllContacts()
 		{
-			new ContactBookDB().ViewAllContactsFromDB();
+			contactBookDb.ViewAllContactsFromDB();
 		}
 	}
 }

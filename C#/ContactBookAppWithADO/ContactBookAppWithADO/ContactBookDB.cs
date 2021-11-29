@@ -6,12 +6,6 @@ namespace ContactBookAppWithADO
 	class ContactBookDB
 	{
 		SqlConnection con = new SqlConnection("data source=.; database=ContactBookDB; integrated security=SSPI");
-		private ContactBook contactBook;
-
-		public ContactBookDB()
-		{
-			contactBook = new ContactBook();
-		}
 
 		public void AddContactToDB(Contact contact)
 		{
@@ -30,7 +24,6 @@ namespace ContactBookAppWithADO
 			finally
 			{
 				con.Close();
-				contactBook.ViewMenu();
 			}
 		}
 
@@ -67,7 +60,6 @@ namespace ContactBookAppWithADO
 			finally
 			{
 				con.Close();
-				contactBook.ViewMenu();
 			}
 		}
 
@@ -162,25 +154,21 @@ namespace ContactBookAppWithADO
 								contactBook.EditContact();
 								break;
 						}
-
-						contactBook.ViewMenu();
 					}
 					else
 					{
 						Console.WriteLine("\nInvalid Option.Try again...");
-						contactBook.EditContact();
+						new ContactBook().EditContact();
 					}
 				}
 				else
 				{
 					Console.WriteLine("\nNo Records Found...");
-					contactBook.ViewMenu();
 				}
 			}
 			catch
 			{
 				Console.WriteLine("\nCannot edit the Contact...\n\n");
-				contactBook.ViewMenu();
 			}
 			finally
 			{
@@ -205,7 +193,6 @@ namespace ContactBookAppWithADO
 			finally
 			{
 				con.Close();
-				contactBook.ViewMenu();
 			}
 		}
 
@@ -241,7 +228,6 @@ namespace ContactBookAppWithADO
 			finally
 			{
 				con.Close();
-				contactBook.ViewMenu();
 			}
 		}
 	}
