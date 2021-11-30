@@ -265,11 +265,11 @@ namespace ContactBookConsoleApp
 					//Console.WriteLine($"{count}\t|{Contacts[i].Name}\t|{Contacts[i].FirstName}\t|{Contacts[i].LastName}\t|{Contacts[i].PhoneNumber}\t|{Contacts[i].Email}\t\t|");
 
 					Console.WriteLine($"\nContact: {count}");
-					Console.WriteLine($"Name\t: {Contacts[i].Name}");
+					Console.WriteLine($"Name\t\t: {Contacts[i].Name}");
 					Console.WriteLine($"First Name\t: {Contacts[i].FirstName}");
 					Console.WriteLine($"Last Name\t: {Contacts[i].LastName}");
 					Console.WriteLine($"Phone Number\t: {Contacts[i].PhoneNumber}");
-					Console.WriteLine($"EMail\t: {Contacts[i].Email}");
+					Console.WriteLine($"EMail\t\t: {Contacts[i].Email}");
 
 					count += 1;
 				}
