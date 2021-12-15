@@ -5,14 +5,14 @@ namespace ContactBookAppWithASP
 {
 	class ContactBookDB
 	{
-		SqlConnection con = new SqlConnection("data source=.; database=ContactBookDB; integrated security=SSPI");
+		SqlConnection con;
 
 		public ContactBookDB()
 		{
-
+			con = new SqlConnection("data source=.; database=ContactBookDB; integrated security=SSPI");
 		}
 
-		public void AddContactToDB(Contact contact)
+		public bool AddContactToDB(Contact contact)
 		{
 			SqlCommand insertQuery = new SqlCommand($"INSERT INTO Contacts(Name, FirstName, LastName, PhoneNumber, Email) VALUES ('{contact.Name}', '{contact.FirstName}', '{contact.LastName}', {contact.PhoneNumber}, '{contact.Email}')", con);
 
@@ -20,11 +20,11 @@ namespace ContactBookAppWithASP
 			{
 				con.Open();
 				insertQuery.ExecuteNonQuery();
-				Console.WriteLine("\nContact Added Successfully...\n\n");
+				return true;
 			}
 			catch
 			{
-				Console.WriteLine("\nCannot add the Contact...\n\n");
+				return false;
 			}
 			finally
 			{
