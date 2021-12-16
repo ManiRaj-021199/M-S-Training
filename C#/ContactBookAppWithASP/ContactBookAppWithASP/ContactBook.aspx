@@ -42,7 +42,8 @@
                     </div>
                 </div>
                 <div class="rightContainer">
-                    
+                    <asp:GridView ID="GridView1" runat="server">
+                    </asp:GridView>
                 </div>
             </div>
         </div>

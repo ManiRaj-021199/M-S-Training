@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 
 namespace ContactBookAppWithASP
@@ -10,6 +12,8 @@ namespace ContactBookAppWithASP
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			contactBookDB = new ContactBookDB();
+
+			ShowRecords();
 		}
 
 		protected void AddContact_Click(object sender, EventArgs e)
@@ -35,17 +39,33 @@ namespace ContactBookAppWithASP
 
 				if(contactBookDB.AddContactToDB(contact))
 				{
-					Response.Write("Data Added...");
+					ShowRecords();
 				}
 				else
 				{
-					Response.Write("Something Wrong Happend...");
+					Response.Write("Something Wrong Happened...");
 				}
 			}
 			else
 			{
 				Response.Write("Please enter a correct mobile number...");
 			}
+		}
+
+		protected void ShowRecords()
+		{
+			SqlDataAdapter contactSet = contactBookDB.ViewAllContactsFromDB();
+
+			DataSet ds = new DataSet();
+			contactSet.Fill(ds);
+
+			BoundField field = new BoundField();
+			field.DataField = "FiekdDataField";
+			field.HeaderText = "FieldHeader";
+			GridView1.Columns.Add(field);
+
+			GridView1.DataSource = ds;
+			GridView1.DataBind();
 		}
 	}
 }

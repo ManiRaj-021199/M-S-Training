@@ -32,40 +32,10 @@ namespace ContactBookAppWithASP
 			}
 		}
 
-		public void ViewAllContactsFromDB()
+		public SqlDataAdapter ViewAllContactsFromDB()
 		{
-			SqlCommand selectQuery = new SqlCommand("SELECT * FROM Contacts", con);
-
-			try
-			{
-				con.Open();
-				SqlDataReader sdr = selectQuery.ExecuteReader();
-
-				if(sdr.HasRows)
-				{
-					int count = 1;
-
-					while(sdr.Read())
-					{
-						Console.WriteLine($"\nContact: {count}");
-						Console.WriteLine($"Name\t: {sdr["Name"]}");
-						Console.WriteLine($"First Name\t: {sdr["FirstName"]}");
-						Console.WriteLine($"Last Name\t: {sdr["LastName"]}");
-						Console.WriteLine($"Phone Number\t: {sdr["PhoneNumber"]}");
-						Console.WriteLine($"EMail\t: {sdr["Email"]}");
-
-						count += 1;
-					}
-				}
-			}
-			catch
-			{
-				Console.WriteLine("\nCannot view the Contact...\n\n");
-			}
-			finally
-			{
-				con.Close();
-			}
+			SqlDataAdapter selectQuery = new SqlDataAdapter("SELECT * FROM Contacts", con);
+			return selectQuery;
 		}
 
 		public void EditContactFromDB(long phone)
