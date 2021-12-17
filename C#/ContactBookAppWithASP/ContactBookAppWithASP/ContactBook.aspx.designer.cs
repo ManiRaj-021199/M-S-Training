@@ -24,58 +24,58 @@ namespace ContactBookAppWithASP
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
-		/// userName control.
+		/// txtUserName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlInputText userName;
+		protected global::System.Web.UI.HtmlControls.HtmlInputText txtUserName;
 
 		/// <summary>
-		/// firstName control.
+		/// txtFirstName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlInputText firstName;
+		protected global::System.Web.UI.HtmlControls.HtmlInputText txtFirstName;
 
 		/// <summary>
-		/// lastName control.
+		/// txtLastName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlInputText lastName;
+		protected global::System.Web.UI.HtmlControls.HtmlInputText txtLastName;
 
 		/// <summary>
-		/// phoneNumber control.
+		/// txtPhoneNumber control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlInputText phoneNumber;
+		protected global::System.Web.UI.HtmlControls.HtmlInputText txtPhoneNumber;
 
 		/// <summary>
-		/// eMail control.
+		/// txtEMail control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlInputText eMail;
+		protected global::System.Web.UI.HtmlControls.HtmlInputText txtEMail;
 
 		/// <summary>
-		/// AddContact control.
+		/// btnAddContact control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button AddContact;
+		protected global::System.Web.UI.WebControls.Button btnAddContact;
 
 		/// <summary>
 		/// btnEditContact control.
@@ -87,12 +87,12 @@ namespace ContactBookAppWithASP
 		protected global::System.Web.UI.WebControls.Button btnEditContact;
 
 		/// <summary>
-		/// GridView1 control.
+		/// gvContactBookTable control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.GridView GridView1;
+		protected global::System.Web.UI.WebControls.GridView gvContactBookTable;
 	}
 }

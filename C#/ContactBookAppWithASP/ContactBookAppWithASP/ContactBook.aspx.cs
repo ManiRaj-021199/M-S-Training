@@ -26,22 +26,22 @@ namespace ContactBookAppWithASP
 			DataSet ds = new DataSet();
 			contactSet.Fill(ds);
 
-			GridView1.DataSource = ds;
-			GridView1.DataBind();
+			gvContactBookTable.DataSource = ds;
+			gvContactBookTable.DataBind();
 		}
 
-		protected void AddContact_Click(object sender, EventArgs e)
+		protected void BtnAddContact_Click(object sender, EventArgs e)
 		{
 			Contact contact = new Contact();
 
-			contact.Name = userName.Value.ToString();
-			contact.FirstName = firstName.Value.ToString();
-			contact.LastName = lastName.Value.ToString();
-			contact.Email = eMail.Value.ToString();
+			contact.Name = txtUserName.Value.ToString();
+			contact.FirstName = txtFirstName.Value.ToString();
+			contact.LastName = txtLastName.Value.ToString();
+			contact.Email = txtEMail.Value.ToString();
 
 			long lPhoneNumber;
 
-			if(long.TryParse(phoneNumber.Value.ToString(), out lPhoneNumber))
+			if(long.TryParse(txtPhoneNumber.Value.ToString(), out lPhoneNumber))
 			{
 				contact.PhoneNumber = lPhoneNumber;
 
@@ -49,11 +49,11 @@ namespace ContactBookAppWithASP
 				{
 					ShowRecords();
 
-					userName.Value = "";
-					firstName.Value = "";
-					lastName.Value = "";
-					eMail.Value = "";
-					phoneNumber.Value = "";
+					txtUserName.Value = "";
+					txtFirstName.Value = "";
+					txtLastName.Value = "";
+					txtEMail.Value = "";
+					txtPhoneNumber.Value = "";
 				}
 				else
 				{
@@ -66,20 +66,20 @@ namespace ContactBookAppWithASP
 			}
 		}
 
-		protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+		protected void gvContactBookTable_RowCommand(object sender, GridViewCommandEventArgs e)
 		{
 			if(e.CommandName == "EditContact")
 			{
 				string[] commandArguments = e.CommandArgument.ToString().Split(new char[] { ',' });
-				userName.Value = commandArguments[0];
-				firstName.Value = commandArguments[1];
-				lastName.Value = commandArguments[2];
-				phoneNumber.Value = commandArguments[3];
-				eMail.Value = commandArguments[4];
+				txtUserName.Value = commandArguments[0];
+				txtFirstName.Value = commandArguments[1];
+				txtLastName.Value = commandArguments[2];
+				txtPhoneNumber.Value = commandArguments[3];
+				txtEMail.Value = commandArguments[4];
 
 				ViewState["PhoneNumber"] = Convert.ToInt64(commandArguments[3]);
 
-				AddContact.Visible = false;
+				btnAddContact.Visible = false;
 				btnEditContact.Visible = true;
 			}
 
@@ -98,18 +98,18 @@ namespace ContactBookAppWithASP
 			}
 		}
 
-		protected void btnEditContact_Click(object sender, EventArgs e)
+		protected void BtnEditContact_Click(object sender, EventArgs e)
 		{
 			Contact contact = new Contact();
 
-			contact.Name = userName.Value.ToString();
-			contact.FirstName = firstName.Value.ToString();
-			contact.LastName = lastName.Value.ToString();
-			contact.Email = eMail.Value.ToString();
+			contact.Name = txtUserName.Value.ToString();
+			contact.FirstName = txtFirstName.Value.ToString();
+			contact.LastName = txtLastName.Value.ToString();
+			contact.Email = txtEMail.Value.ToString();
 
 			long lPhoneNumber;
 
-			if(long.TryParse(phoneNumber.Value.ToString(), out lPhoneNumber))
+			if(long.TryParse(txtPhoneNumber.Value.ToString(), out lPhoneNumber))
 			{
 				contact.PhoneNumber = lPhoneNumber;
 
@@ -117,13 +117,13 @@ namespace ContactBookAppWithASP
 				{
 					ShowRecords();
 
-					userName.Value = "";
-					firstName.Value = "";
-					lastName.Value = "";
-					eMail.Value = "";
-					phoneNumber.Value = "";
+					txtUserName.Value = "";
+					txtFirstName.Value = "";
+					txtLastName.Value = "";
+					txtEMail.Value = "";
+					txtPhoneNumber.Value = "";
 
-					AddContact.Visible = true;
+					btnAddContact.Visible = true;
 					btnEditContact.Visible = false;
 				}
 				else
