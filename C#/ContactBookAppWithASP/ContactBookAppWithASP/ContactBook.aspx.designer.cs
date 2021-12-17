@@ -78,6 +78,15 @@ namespace ContactBookAppWithASP
 		protected global::System.Web.UI.WebControls.Button AddContact;
 
 		/// <summary>
+		/// btnEditContact control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button btnEditContact;
+
+		/// <summary>
 		/// GridView1 control.
 		/// </summary>
 		/// <remarks>
