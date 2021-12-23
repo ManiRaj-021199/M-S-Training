@@ -38,7 +38,7 @@
                     <div class="inputField">
                         <span></span>
                         <asp:Button class="submitButton" Text="ADD CONTACT" runat="server" ID="btnAddContact" OnClick="BtnAddContact_Click" />
-                        <asp:Button class="submitButton" Text="EDIT CONTACT" runat="server" ID="btnEditContact" Visible="false" OnClick="BtnEditContact_Click" />
+                        <asp:Button class="submitButton" Text="SAVE CONTACT" runat="server" ID="btnEditContact" Visible="false" OnClick="BtnEditContact_Click" />
                     </div>
                 </div>
                 <div class="rightContainer">
